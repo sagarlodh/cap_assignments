@@ -1,0 +1,4 @@
+8) Write a Java program to demonstrate InitializingBean and DisposableBean.
+Try Different ways:
+(Use init-method and destroy-method in xml config file)
+(Use @PostConstruct and @PreDestroy)

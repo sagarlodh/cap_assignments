@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "https://www.springframework.org/dtd/spring-beans.dtd"> -->
+
+<beans	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+					http://www.springframework.org/schema/context https://www.springframework.org/schema/beans/spring-context.xsd"
+			xmlns:context="http://www.springframework.org/schema/context">
+<context:component-scan base-package="io.org.javaBrains" />
+
+<bean id="bankAccount" class="io.org.bank.BankAccount">
+	<property name="accountId" 			value="1" />
+	<property name="accountHolderName" 	value="Sagar" />
+	<property name="accountType" 		value="savings" />
+	<property name="accountBalance" 	value="10000" />
+</bean>
+<bean id="bankAccountepositoryImpl" class="io.org.bank.BankAccountepositoryImpl">
+
+</bean>
+
+<bean id="bankaccountServiceImpl" class="io.org.bank.BankAccountServiceImpl">
+
+</bean>
+
+
+<bean id="bankAccountController" class="io.org.bank.BankAccountController">
+	<property name="bankAccountServiceImpl" ref="bankaccountServiceImpl"/>
+	<property name="bankAccountRepoImpl" ref="bankAccountepositoryImpl"/>
+</bean>
+
+</beans>

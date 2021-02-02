@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "https://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="address" class="io.org.javaBrains.Address">  
+		<constructor-arg 				value="23"></constructor-arg>  
+		<constructor-arg  				value="Bangalore"></constructor-arg>  
+		<constructor-arg  				value="007"></constructor-arg>  
+		<constructor-arg 	 			value="India"></constructor-arg>  
+	</bean>  
+	<bean id="info" class="io.org.javaBrains.Customer">  
+		<property name="customerId" 		value="1"></property>  
+		<property name="customerName" 		value="Sagar Lodh"></property>  
+		<property name="customerContact" 	value="112233"></property>
+		<property name="customerAddress" 	ref="address"></property>
+	</bean>  
+</beans>

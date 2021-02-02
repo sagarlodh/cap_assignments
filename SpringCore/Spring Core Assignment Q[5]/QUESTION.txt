@@ -1,0 +1,1 @@
+5) Write a program to demonstrate use of @Resource, @Inject, @Required annotations

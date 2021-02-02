@@ -1,0 +1,11 @@
+2) Example of Injecting collections (List, Set and Map)
+Create a class Question with following attributes: questionId, question, answers.
+There are 3 cases for above program.
+a. Write a program where answers is of type List<String> or String []
+b. Write a program where answers is of type Set<String>
+c. Write a program where answers is of type Map<Integer, String>
+In case of Map, Integer value represents answer’s sequence number.
+d. Create a Test class with main() method, get Question bean from
+ApplicationContext object and print question and its answers.
+e. Also write the JUnit Test cases for above program.
+- Use XML based configuration.

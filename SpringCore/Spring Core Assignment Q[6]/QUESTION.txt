@@ -1,0 +1,5 @@
+6) Example of @Component, @Value, @PropertySource & Environment
+a. Create a dbConfig.properties file which contains database configuration details
+like driver class name, dburl, username, password.
+b. Create a Java class in which you have to read all properties and display on a
+console. (Use @Component, @Value or Environment and @PropertyResource).

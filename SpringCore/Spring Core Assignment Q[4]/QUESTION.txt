@@ -1,0 +1,3 @@
+4) Example on @Controller, @Service, @Repository, @Autowired, @Configuration and
+@Bean
+Modify the above application [Q.3], use annotations and java based configuration. 
