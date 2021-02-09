@@ -1,0 +1,5 @@
+12) Exception handling concept (@ControllerAdvice, @ExceptionHandler etc. will be convered in
+our regular Banking Application case study.
+Exceptions:
+a. LowBalanceException: when customer is not having sufficient fund for transaction
+b. AccountNotFoundException: when payees account does not exists. (fund transfer)

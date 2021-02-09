@@ -1,0 +1,5 @@
+7) Example on Custom validation.
+Add custom validations in the above example.
+• Contact should be only numeric and exactly 10-digits.
+• Once Customer selects city and ZipCode. Validate the zipcode i.e ZipCode belongs to the
+same city or not. (Use small set of sample data)
