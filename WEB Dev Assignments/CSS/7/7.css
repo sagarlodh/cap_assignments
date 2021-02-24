@@ -1,0 +1,10 @@
+div{
+  border-style: dotted;
+  border-width: medium;
+  border-color: green;
+}
+p{
+  border-style: solid;
+  border-width: thin;
+  border-color: red;
+}

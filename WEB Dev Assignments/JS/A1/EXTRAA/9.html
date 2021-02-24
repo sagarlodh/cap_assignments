@@ -1,0 +1,21 @@
+!
+<script type="text/javascript">
+
+  var yearsPrinted = 0;
+  var currentYear = prompt("Enter present year : ");
+  function leapYears() {
+      while (yearsPrinted < 20) {
+          if ((currentYear % 4 === 0) && (!((currentYear % 100===0) && (currentYear % 400 !== 0)))) {
+
+              console.log(currentYear + "<br>");
+              yearsPrinted++;
+              currentYear++;
+          } else {
+              currentYear++;
+          }
+      }
+  }
+
+  leapYears();
+
+</script>

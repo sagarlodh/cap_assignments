@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>[1] compute sum 1.. + n</p>
+<p>[2] compute product 1.. * n</p>
+<input id="input" type="number" required>
+<button onclick="get()">Get Result</button>
+<p id="demo"></p>
+<script>
+  function sum(n)
+  {   var total=0;
+      for (var i = 1; i <= n; i++) {
+          total += i;
+      }
+      return total;
+  }
+  function mul(n)
+  {   var total=1;
+      for (var i = 1; i <= n; i++) {
+          total *= i;
+      }
+      return total;
+  }
+
+function get() {
+  var finalResult;
+  var num = document.getElementById("input").value;
+  //var num = prompt("[1] sum \n[2] multiply : ");
+
+  var number = prompt("enter your limit : ")
+  switch(num) {
+    case '1':
+      finalResult = sum(number);
+      break;
+    case '2':
+      finalResult = mul(number);
+      break;
+    default:
+      console.log("invalid");
+  }
+  document.getElementById("demo").innerHTML = finalResult;
+}
+</script>
+</body>
+</html>

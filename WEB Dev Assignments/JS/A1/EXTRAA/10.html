@@ -1,0 +1,87 @@
+!
+<script type="text/javascript">
+// 11 12 13 14 15 17
+// for 18 we use forEach and pass a function in it which is defined elsewhere
+// 19 20 21 24
+var myList = [1,2,3,4,5,6,7,8,9,10];
+var myList1 = [11,12,13,14,15,16,17,18,19,20];
+var myList2 = [1,2,5,7,3,4];
+var myList3 = [20,13,15,14,12,16,11];
+function max(list){
+  var i = Math.max(...list);
+  return i;
+}
+
+function find(list, num) {
+
+    var result = list.includes(num);
+    return result;
+}
+
+function odd(list) {
+    let r = [];
+    for (var i = 0; i < list.length; i+=2) {
+        r.push(list[i]);
+    }
+    return r;
+}
+
+function sum(list){
+    var sum=0;
+    for(var s=0; s < list.length; s++){
+        sum += list[s];
+    }
+    return sum;
+}
+var sumFor = function(array) {
+    if(array.length === 0){
+        return 0;
+    }
+    function add(array, i){
+        if(i === array.length-1){
+            return array[i];
+        }
+        return array[i] + add(array, i+1);
+    }
+    return add(array, 0);
+};
+
+function concat(list1,list2) {
+  var temp = list1.concat(list2);
+  return temp;
+}
+
+function newList(list1, list2) {
+  var newlist = [];
+  for (var i=0;i<list1.length;i++) {
+    newlist.push(list1[i]);
+    newlist.push(list2[i]);
+  }
+  return newlist;
+}
+
+function listSort(list1,list2) {
+
+    var neww = list1.sort();
+    var neww = neww.concat(list2.sort());
+    return neww;
+}
+
+function singleDigit(num) {
+
+  return Array.from(String(num), Number);
+
+}
+
+console.log(max(myList));
+console.log(find(myList, 8));
+console.log(odd(myList));
+console.log(sum(myList));
+console.log(sumFor(myList));
+console.log(concat(myList,myList1));
+console.log(newList(myList,myList1));
+console.log(myList.reverse());
+console.log(listSort(myList2,myList3));
+console.log(singleDigit(123456));
+
+</script>

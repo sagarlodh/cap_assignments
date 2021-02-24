@@ -1,0 +1,30 @@
+!
+<script type="text/javascript">
+  // 4 5 6 7
+
+// defining an object without making a class
+var p  = {
+  firstName : "Sagar",
+  lastName : "Lodh",
+  middleName : ""
+};
+
+p.getFullName = function () {
+// for normal
+     console.log(this.firstName + ' ' + this.lastName);
+
+//   for parse
+      console.log(JSON.parse(JSON.stringify(p)));
+      console.log(p.firstName);
+}
+
+console.log(p.firstName);
+
+// updating and fetching
+p.middleName = "Roy";
+console.log(p.middleName);
+
+console.log(p.lastName);
+p.getFullName();
+
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="2.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">Employee Form</h1>
+      <p id="description" class="description text-center">
+        Please enter your details about the product you wish to order!
+      </p>
+    </header>
+    <form id="survey-form">
+      <div class="form-group">
+        <label id="name-label" for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" required />
+      </div>
+      <div class="form-group">
+        <label id="email-label" for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Enter your Email" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label id="number-label" for="number">Age<span class="clue">(optional)</span></label>
+        <input type="number" name="age" id="number" min="15" max="56" class="form-control" placeholder="Age" />
+      </div>
+      <div class="form-group">
+        <p>What is your current role?</p>
+        <select id="dropdown" name="role" class="form-control" required>
+          <option disabled selected value>Select current role</option>
+          <option>Intern</option>
+          <option>Full Time</option>
+          <option>Consultant</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <p>Where are you working from?</p>
+        <label>
+          <input name="user-recommend" type="radio" class="input-radio" checked />Definitely</label>
+        <label>
+          <input name="user-recommend" type="radio" class="input-radio" />Maybe</label>
+      </div>
+      <div class="form-group">
+        <p>Select your campus?</p>
+        <select id="most-like" name="mostLike" class="form-control" required>
+          <option disabled selected value>Select an option</option>
+          <option>Mumbai</option>
+          <option>Delhi</option>
+          <option>Pune</option>
+          <option>Kolkata</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <p>Which technologies you work on?<span class="clue">(Check all that apply)</span></p>
+        <label><input name="prefer" type="checkbox" class="input-checkbox" />Front-end</label>
+        <label>
+          <input name="prefer" type="checkbox" class="input-checkbox" />Back-end</label>
+        <label><input name="prefer" type="checkbox" class="input-checkbox" />SAP</label>
+        <label><input name="prefer" type="checkbox" class="input-checkbox" />SQL</label>
+      </div>
+      <div class="form-group">
+        <p>Any comments or suggestions?</p>
+        <textarea id="comments" class="input-textarea" name="comment" placeholder="Enter your comments here..."></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" id="submit" class="submit-button">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

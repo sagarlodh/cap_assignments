@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding:0;
+  }
+
+  body{
+    margin:0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+
+  #showcase{
+    background-image:url('food1.jpeg');
+    background-size:cover;
+    background-size: contain;
+    background-position:center;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 20px;
+  }
+
+  #showcase h1{
+    font-family: cursive;
+    font-weight: bold;
+    font-size:40px;
+    line-height:1.2;
+    color: white;
+    border-style: solid;
+    border-radius: 8px;
+    padding: 20px;
+    border-color: white;
+  }
+
+  #showcase p{
+    color: ghostwhite;
+    padding: 15px;
+    font-size:20px;
+  }
+
+  #showcase .button{
+    font-size:15px;
+    text-decoration:none;
+    color:yellow;
+    border:yellow 1px solid;
+    padding:10px 20px;
+    border-radius:10px;
+    margin-top:10px;
+  }
+
+  #showcase .button:hover{
+    background:yellow;
+    color:black;
+  }
+
+  #section-a{
+    padding:20px;
+    background:rgb(98, 57, 145);
+    color:#fff;
+    text-align:center;
+  }
+
+  #section-b{
+    padding:20px;
+    background:#f4f4f4;
+    text-align:center;
+  }
+
+  #section-c{
+    display:flex;
+  }
+
+  #section-c div{
+    padding:20px;
+  }
+
+  #section-c .box-1, #section-c .box-3{
+    background:#9dda4e;
+    border-style: solid;
+    border-width:thin;
+    color:purple;
+  }
+
+#section-c .box-3{
+  padding-left: 865px;
+}
+#section-c .box-1:hover{
+  background-color: blue;
+  color: white;
+}
+  #section-c .box-2{
+    border-style: solid;
+    border-width:thin;
+    background:yellow;
+    color: purple;
+  }

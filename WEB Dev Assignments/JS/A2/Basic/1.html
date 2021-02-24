@@ -1,0 +1,15 @@
+<script>
+
+  function square(x){
+    return x*x;
+  }
+  function double(y){
+    return y*2;
+  }
+  function composedValue(square, double, num){
+    console.log(square(double(num)));
+  }
+
+  composedValue(square,double,5);
+
+</script>

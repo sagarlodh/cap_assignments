@@ -1,0 +1,17 @@
+h4
+{
+  border-style: solid;
+  border-width: thick;
+  background-color: #b6e9eb;
+  font-weight: normal;
+}
+div{
+  border-style: solid;
+  border-width: medium;
+  background-color: #b6e9eb;
+}
+p{
+  border-style: solid;
+  border-width: thin;
+  background-color: #b6e9eb;
+}

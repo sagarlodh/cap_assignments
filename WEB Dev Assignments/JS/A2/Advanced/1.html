@@ -1,0 +1,15 @@
+<script>
+
+ array1 = [1,3,5,4,2];
+function fun(array) {
+ /*
+  * without using slice
+  * to use slice we just need to use to get a duplicate array
+  * and then same goes
+  */
+  var result = array1.find(element => element%2==0);
+  console.log(result);
+  fun(array);
+}
+fun(array1);
+</script>
