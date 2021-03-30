@@ -1,0 +1,49 @@
+.button {
+    display: flex;
+    height: 4em;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    font-size: 1.4em;
+    background-color: white;
+    color: black;
+    outline: 1px solid #888;
+}
+.operator {
+    background-color:red;
+    color: #fff;
+}
+.button:hover {
+    background:blueviolet;
+    cursor: default;
+}
+.clear-btn {
+    display: flex;
+    flex: 1;
+    height: 4em;
+    align-items: center;
+    justify-content: center;
+    font-weight: lighter;
+    font-size: 1.4em;
+    outline: 1px solid #888;
+    height: 4em;
+    background-color: white;
+}
+.clear-btn:hover{
+    background:blueviolet;
+    cursor: default;
+}
+.input {
+    display: flex;
+    height: 4em;
+    flex: 1;
+    background-color: rgb(65, 42, 20);
+    outline: 1px solid black;
+    color: #fff;
+    justify-content: flex-end;
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 1.4em;
+    align-items: center;
+}
