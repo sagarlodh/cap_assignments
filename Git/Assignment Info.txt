@@ -1,0 +1,2 @@
+As per assignment, all projects and required files have been pushed to the github repo using
+'git-bash' successfully.
