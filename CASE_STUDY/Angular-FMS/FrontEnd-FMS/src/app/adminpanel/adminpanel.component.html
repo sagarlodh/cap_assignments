@@ -1,0 +1,237 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark text-light" 
+  style="padding-top: 12px;padding-bottom: 12px;padding-left: 15px;">
+    <h4 class="navbar-brand" style="padding-right: 15px;">
+      <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      <span>Flights</span>
+    </h4>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+          </li>
+        <li class="nav-item">
+          <a routerLink="/login" routerLinkActive="active" class="nav-link">User Page</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<section>
+  <div style="border: 1px;background-color: rgb(26, 8, 8);
+    text-align: center;padding: 60px;">
+          <h2 class="mt-1 mb-1" style="padding: 20px 5px ;color: whitesmoke;">Welcome admin</h2>
+          <div style="padding-left: 40rem;padding-right: 40rem;">
+            <h3 style="border-radius: 10px;padding-top: 8px;padding-bottom: 8px; 
+            border-style: solid; border-width: 1px;background-color: lightslategray;
+            color: lavender;">{{user.firstName}}</h3>
+          </div>
+          <div style="padding: 20px;">
+            <button  routerLink="/login" class="btn btn-success my-1 my-sm-0" 
+            routerLinkActive="active" type="submit">Logout</button>
+          </div>
+    </div>
+</section>
+
+<section  style="align-items: center;background-color: burlywood;">
+  <section id="new-menu" class="menu" style="padding-left: 1px;">
+
+    <div class="container" style="padding-top: 1rem;">    
+          <div *ngIf="deleteSubmit" style="padding: 1rem; 
+            padding-left: 25rem;padding-right: 20rem;">
+            <button (click)="deleteUser(user.userId)" style="padding: 4px;padding-left: 4px;padding-right: 4px; 
+            border-radius: 5px;"class="bt btn-danger">Finalize Delete Account</button>.
+            <button (click)="cancelDelete()" class="btn btn-success">Cancel</button>
+          </div>
+            <h2 class="mt-0 mb-0" style="text-align: center;padding-bottom: 4rem;color:rgb(236, 247, 247);">
+              <strong>Account Details</strong>
+            </h2>
+          
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+          <div class="mt-0 mb-1">
+            <button (click)="deleteCheck()"class="btn btn-danger">Delete Account!</button>
+          </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr style="text-align: center; color: whitesmoke;" class="bg bg-dark">
+                        <td>UserId</td>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Email</td>
+                        <td>Password</td>
+                        <td>User Type</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="text-align: center;" *ngIf="user">
+                        <td><strong>{{user.userId}}</strong></td>
+                        <td><strong>{{user.firstName}}</strong></td>
+                        <td><strong>{{user.lastName}}</strong></td>
+                        <td><strong>{{user.email}}</strong></td>
+                        <td><strong>{{user.password}}</strong></td>
+                        <td><strong>{{user.userType}}</strong></td>
+                        <td>
+                            <button (click)="updateAdminDetails(user.userId)" class="btn btn-success" style="margin-left: 10px">Update Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+
+      <div class="menu-heading">SERVICES</div>
+
+        <div class="menu-grid">
+          <div class="menu-hold">
+            <div class="menu-container">
+              <h1 class="menu-title">
+                  <a class="menu-link" (click)="goToUsersList()">USERS</a>
+              </h1>
+            </div>
+          </div>
+
+          <div class="menu-hold">
+            <div class="menu-container">
+              <h1 class="menu-title">
+                  <a class="menu-link" (click)="goToAirportsList()">AIRPORTS</a>
+              </h1>
+            </div>
+          </div>
+
+          <div class="menu-hold">
+            <div class="menu-container"><!-- 
+              <div class="menu-img2">
+                &nbsp;
+              </div> -->
+              <h1 class="menu-title">
+                  <a class="menu-link" (click)="goToFlightsList()">FLIGHTS</a>
+              </h1>
+            </div>
+          </div>
+
+          <div class="menu-hold">
+            <div class="menu-container">
+              <h1 class="menu-title">
+                  <a class="menu-link" (click)="goToBookingsList()">BOOKINGS</a>
+              </h1>      
+            </div>
+          </div>
+          
+        </div>
+    </div>
+  </section>
+</section>
+<!-- 
+<section style="align-items: center;background-color: aqua;">
+<div class="container"style="align-items: center;">
+  <section id="new-menu" class="menu" style="padding-left: 1px;">
+
+    <div class="container" style="padding-top: 1rem;">    
+          <div *ngIf="deleteSubmit" style="padding: 1rem; 
+            padding-left: 25rem;padding-right: 20rem;">
+            <button (click)="deleteUser(user.userId)" style="padding: 4px;padding-left: 4px;padding-right: 4px; 
+            border-radius: 5px;"class="bt btn-danger">Finalize Delete Account</button>.
+            <button (click)="cancelDelete()" class="btn btn-success">Cancel</button>
+          </div>
+            <h2 class="mt-0 mb-0" style="text-align: center;padding-bottom: 4rem;color:rgb(236, 247, 247);">
+              <strong>Account Details</strong>
+            </h2>
+            <div class="mt-0 mb-1">
+              <button (click)="deleteCheck()"class="btn btn-danger">Delete Account!</button>
+            </div>
+        
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr style="text-align: center; color: whitesmoke;" class="bg bg-dark">
+                        <td>UserId</td>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Email</td>
+                        <td>Password</td>
+                        <td>User Type</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="text-align: center;" *ngIf="user">
+                        <td><strong>{{user.userId}}</strong></td>
+                        <td><strong>{{user.firstName}}</strong></td>
+                        <td><strong>{{user.lastName}}</strong></td>
+                        <td><strong>{{user.email}}</strong></td>
+                        <td><strong>{{user.password}}</strong></td>
+                        <td><strong>{{user.userType}}</strong></td>
+                        <td>
+                            <button (click)="updateAdminDetails(user.userId)" class="btn btn-success" style="margin-left: 10px">Update Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+
+      <div class="menu-heading" style=" padding-top: 6rem;">SERVICES</div>
+        <div class="menu-grid" style="background-color: blue;">
+
+          <div class="menu-hold">
+            <div class="menu-container">
+              <div class="menu-img">
+                &nbsp;
+              </div>
+              <h1 class="menu-title">
+                  <a class="menu-link" (click)="goToUsersList()">USERS</a>
+              </h1>
+            </div>
+          </div>
+
+          <div class="menu-hold">
+            <div class="menu-container">
+              <div class="menu-img1">
+                &nbsp;
+              </div>
+              <h1 class="menu-title">
+                  <a class="menu-link" (click)="goToAirportsList()">AIRPORTS</a>
+              </h1>
+            </div>
+          </div>
+
+          <div class="menu-hold">
+            <div class="menu-container">
+              <div class="menu-img2">
+                &nbsp;
+              </div>
+              <h1 class="menu-title">
+                  <a class="menu-link" (click)="goToFlightsList()">FLIGHTS</a>
+              </h1>
+            </div>
+          </div>
+
+          <div class="menu-hold">
+            <div class="menu-container">
+              <div class="menu-img3">
+                &nbsp;
+              </div>
+              <h1 class="menu-title">
+                  <a class="menu-link" (click)="goToBookingsList()">BOOKINGS</a>
+              </h1>      
+            </div>
+          </div>
+          
+        </div>
+    </div>
+  </section>
+</div>
+</section>
+</body>
+ -->

@@ -1,0 +1,173 @@
+<section>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark text-light">
+        <h4 class="navbar-brand">
+          <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+          <span>Flights</span></h4>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <button routerLink="/login" style="background-color: rgb(245, 244, 241);"
+            class="btn btn-outline-alert my-2 my-sm-0" routerLinkActive="active" type="submit">Logout</button>
+          </form>
+        </div>
+      </nav>
+    </section>
+<section style="padding: 100px;">
+    <div style="border: 1px;border-radius: 20px;background-color:cornflowerblue;
+    text-align: center;padding: 60px;border-style: solid;border-width: 4px;border-color: darkblue;">
+          <h2 class="mt-1 mb-1" style="padding: 20px 0px ;color: whitesmoke;">Welcome user</h2>
+          <div style="padding-left: 45rem;padding-right: 45rem;">
+            <h3 style="border-radius: 10px; border-style: solid;padding-top: 8px;padding-bottom: 8px; border-width: 1px;
+            background-color: rgb(26, 43, 59);color: lavender;">{{user.firstName}}</h3>
+            <h4 style="border-radius: 10px; border-style: solid;padding-top: 8px;padding-bottom: 8px; border-width: 1px;
+            background-color: rgb(26, 43, 59);color: lavender;">User Id: {{user.userId}}</h4>
+          </div>
+    </div>
+</section>
+<section>
+  <div style="padding-left: 20px;">
+    <button (click)="goToUserPanel()" class="btn btn-success">Back</button>
+  </div>
+</section>
+<section style="padding: 10px;padding-left: 50rem;padding-right: 50rem;">
+  <div style="border-radius: 15px;padding: 2px;padding-left: 2.5rem;background-color: rgb(172, 127, 192);">
+    <h2>Book Your Flights Here</h2>
+  </div>
+</section>
+<section> 
+  <div class="container">
+  <div class="row mt-5" style="padding-top: 80px;">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <label><b>Enter Source Airport :</b></label>
+        <input type="text" autofocus placeholder="enter source airport " class="form-control"
+        name="srcAirport" [(ngModel)] = "sourceAirport"><br/>
+        <label><b>Enter Destination Airport :</b></label>
+        <input type="text" autofocus placeholder="enter destination airport airport " class="form-control"
+        name="destAirport" [(ngModel)] = "destinationAirport">
+        <div style="padding-top: 10px;">
+            <button type="button" class="btn btn-success" (click)="customerSearchFlight()">Search Flights</button> 
+        </div>
+    </div>  
+  </div>
+  </div>
+</section>
+<section>
+  <div class="container" style="padding-bottom: 4rem;">
+    <h2 class="mt-5" >Available Flights :</h2>
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <table class="table" style="text-align: center;">
+            <thead class="bg bg-dark" style="color: whitesmoke;">
+                <tr>
+                    <td>Flight Id</td>
+                    <td>Flight No</td>
+                    <td>Carrier</td>
+                    <td>Seating Capacity</td>
+                    <td>Source Airport Name</td>
+                    <td>Destination Airport Name</td>
+                    <td>Book Your Flight</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="text-align: center;" *ngIf="flightResponse">
+                    <td><strong>{{flightResponse.flightId}}</strong></td>
+                    <td><strong>{{flightResponse.flightNo}}</strong></td>
+                    <td><strong>{{flightResponse.carrier}}</strong></td>
+                    <td><strong>{{flightResponse.seatingCapacity}}</strong></td>
+                    <td><strong>{{flightResponse.srcAirportName}}</strong></td>
+                    <td><strong>{{flightResponse.destAirportName}}</strong></td>
+                    <td>
+                      <button (click)="bookNow()"class="btn btn-danger">Book This Flight</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</section>
+<section *ngIf="submitBookNow" style="padding-bottom: 20rem;">
+  <div class="container">
+    <h2 class="mt-1 mb-1" style="text-align: center;padding: 2px;border-radius: 15px;background-color: darkorchid;color: white;">Add Booking Details</h2>
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div>
+          <h3>{{message}}</h3>
+        </div>
+        <div *ngIf="!finalSubmit"  style="width: 69rem;padding-top: 5rem;border-radius: 10px;
+        background-color: rgb(208, 208, 218);">
+        <form (ngSubmit)="onSubmit()" style="padding: 4rem;padding-top: 3px;" #userForm="ngForm"> <!-- make a fucntion call for this working -->
+            <div class="form-group">
+              <label for="uniqueCode"><b>Unique Code :</b></label>
+              <input type="text" autofocus class="form-control"#uniqueCode="ngModel" [class.is-invalid]="uniqueCode.invalid && uniqueCode.touched"
+               required id="uniqueCode" placeholder="Enter an unique code: combination of letters and numbers"
+              [(ngModel)]="booking.uniqueCode" name="uniqueCode">
+              <small [class.d-none]="uniqueCode.valid || uniqueCode.untouched" class="text-danger">
+                Unique code is required!</small>
+            </div>
+        
+            <div class="form-group">
+                <label for="bookingDate"><b>Enter Date of Travel :</b></label>
+                <input type="text" class="form-control" #bookingDate="ngModel" 
+                pattern="^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-((19|2[0-9])[0-9]{2})$"
+                [class.is-invalid]="bookingDate.invalid && bookingDate.touched"
+                required placeholder="dd-mm-yyyy" 
+                id="bookingDate" [(ngModel)]="booking.bookingDate" name="bookingDate">
+                <div *ngIf="bookingDate.errors && (bookingDate.invalid || bookingDate.touched)">
+                  <small class="text-danger" *ngIf="bookingDate.errors.required">
+                    Booking date is required!</small>
+                  <small class="text-danger" *ngIf="bookingDate.errors.pattern">
+                    Booking date should be valid! : 'dd-mm-yyyy'</small>   
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <label for="userId"><b>Booking User Id :</b></label>
+                <input type="number" class="form-control" #userId="ngModel" [class.is-invalid]="userId.invalid && userId.touched"
+                required id="userId" placeholder="Enter user-id" 
+                [(ngModel)]="booking.userId" name="userId">
+                <small [class.d-none]="userId.valid || userId.untouched" class="text-danger">
+                  User Id is required!</small>
+            </div>
+
+            <div class="form-group">
+              <label for="noOfPassengers"><b>No. of Passengers :</b></label>
+              <input type="number" class="form-control" #noOfPassengers="ngModel" [class.is-invalid]="noOfPassengers.invalid && noOfPassengers.touched"
+              required id="noOfPassengers" placeholder="Enter the no. of passengers" 
+              [(ngModel)]="booking.noOfPassengers" name="noOfPassengers">
+              <small [class.d-none]="noOfPassengers.valid || noOfPassengers.untouched" class="text-danger">
+                No. of passengers is required!</small>
+          </div>
+
+          <div class="form-group">
+            <label for="flightId"><b>Flight Id :</b></label>
+            <input type="number" class="form-control" #flightId="ngModel" [class.is-invalid]="flightId.invalid && flightId.touched"
+            required id="flightId" placeholder="Enter flight-id" 
+            [(ngModel)]="booking.flightId" name="flightId">
+            <small [class.d-none]="flightId.valid || flightId.untouched" class="text-danger">
+             Flight Id is required!</small>
+        </div>
+              <button (click)="cancelButton()" class="btn btn-danger">Cancel</button>.
+              <button [disabled]="userForm.form.invalid" type="submit" class="btn btn-success">Book Now</button>
+        </form>
+        </div>
+        <div *ngIf="finalSubmit">
+          <h4>You submitted successfully!</h4>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+

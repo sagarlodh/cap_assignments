@@ -1,0 +1,120 @@
+<section>
+  <section>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark text-light">
+        <h4 class="navbar-brand">
+          <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+          <span>Flights</span></h4>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+              </li>
+            <li class="nav-item">
+                <a routerLink="/register" routerLinkActive="active" class="nav-link">Register</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <button routerLink="/login" style="background-color: rgb(245, 244, 241);"class="btn btn-outline-alert my-2 my-sm-0" routerLinkActive="active" type="submit">Login</button>
+          </form>
+        </div>
+      </nav>
+    </section>
+</section>
+<section style="padding-bottom: 10rem;">
+<div class="container" >
+  <h1 class="mt-1 mb-1" style="text-align: center;padding-top: 5rem;
+  padding-bottom: 2rem;border-radius: 20px;color: aliceblue;background-color: darkorchid;">
+    <b>Registration</b>
+  </h1>
+  <div class="row" style="padding-top: 5rem;">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding-bottom:1rem">
+      <div>
+        <h3>{{message}}</h3>
+      </div>
+      <div style="text-align: end;color: chocolate;"><h4><strong>WELCOME TO YOUR FIRST JOURNEY!</strong></h4></div>
+      <div [hidden]="submitted" style="width: 600px;padding-top: 5rem;border-radius: 10px;
+      background-color: rgb(208, 208, 218);">
+        <form (ngSubmit)="onSubmit()" style="padding: 4rem;padding-top: 3px;" #userForm="ngForm">
+          <div class="form-group">
+            <label for="firstName"><h3><b>First Name :</b></h3></label>
+            <input type="text" class="form-control" #firstName="ngModel" [class.is-invalid]="firstName.invalid && firstName.touched"
+            required id="firstName"[(ngModel)]="user.firstName" placeholder="enter your first name" name="firstName">
+            <small [class.d-none]="firstName.valid || firstName.untouched" class="text-danger">
+              First name is required!</small>
+            </div>
+      
+          <div class="form-group">
+              <label for="lastName"><h3><b>Last Name :</b></h3></label>
+              <input type="text" class="form-control" #lastName="ngModel" [class.is-invalid]="lastName.invalid && lastName.touched"
+              id="lastName"[(ngModel)]="user.lastName" placeholder="enter your last name" name="lastName">
+          </div>
+      
+          <div class="form-group">
+              <label for="email"><h3><b>Email :</b></h3></label>
+              <input type="text" class="form-control"placeholder="enter your email" #email="ngModel" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" 
+              [class.is-invalid]="email.invalid && email.touched"
+              required id="email"[(ngModel)]="user.email" name="email">
+              <div *ngIf="email.errors && (email.invalid || email.touched)">
+                <small class="text-danger" *ngIf="email.errors.required">
+                  Email is required!</small>
+                <small class="text-danger" *ngIf="email.errors.pattern">
+                  Email should be valid! : 'example@example.com'</small>   
+              </div>
+          </div>
+          
+          <div class="form-group">
+              <label for="password"><h3><b>Password :</b></h3></label>
+              <input type="password" class="form-control"placeholder="enter your password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched"
+              required id="password"[(ngModel)]="user.password" name="password">
+              <small [class.d-none]="password.valid || password.untouched" class="text-danger">
+                Password is required!</small>
+          </div>
+      
+          <div class="form-group">
+            <label for="userType"><b>User Type :</b></label>
+            <select class="form-control" required id="userType" [(ngModel)]="user.userType" name="userType">
+              <option value="select User Type" selected disabled >select User Type</option>
+              <option  value="USER">USER</option>
+            </select>
+          </div>
+          <div>
+            <h4><button [disabled]="userForm.form.invalid" type="submit" class="btn btn-success">Register</button></h4>
+            <small><strong>Already have an account! Login </strong></small><a routerLink="/login">Here</a>
+          </div>
+        </form>
+      </div>
+      <div [hidden]="!submitted">
+        <h4>You submitted successfully!</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+<section>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-alert text-light">
+      <h4 class="navbar-brand">
+        <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span>Flights</span></h4>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="home">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+              <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+            </li>
+          <li class="nav-item">
+              <a routerLink="/register" routerLinkActive="active" class="nav-link">Register</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <button routerLink="/login" style="background-color: rgb(245, 244, 241);"class="btn btn-outline-alert my-2 my-sm-0" routerLinkActive="active" type="submit">Login</button>
+        </form>
+      </div>
+    </nav>
+  </section>
+  <section id="new-contact" class="contact">
+    <div class="contact-content">
+      <div class="right">
+        <div class="contact-form">
+          <form class="form">
+            <h1 class="contact-heading">Contact Us</h1>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="input" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="input" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea type="text" class="input textarea" placeholder="Enter your message" required></textarea>
+            </div>
+            <a href="#" class="contact-btn">Submit</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

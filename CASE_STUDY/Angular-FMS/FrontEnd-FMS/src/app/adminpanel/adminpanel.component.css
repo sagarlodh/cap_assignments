@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+html{
+    
+    font-size: 50%;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'poppins', sans-serif;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+}
+
+
+.menu{/* 
+    width: max-content;*/
+    padding:auto;
+    background-color: rgb(255, 255, 255); 
+    background-image: url("/assets/flights-3.jpg");
+    height: 60rem;
+    background-position:right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; 
+
+}
+
+.menu-heading{
+    padding-top: 9rem;
+    padding-bottom: 7rem;
+    font-size: 4rem;
+    text-align:justify;
+    text-shadow: 0 .4rem .45rem black;
+    text-transform: uppercase;
+    color: rgb(31, 243, 12);
+    font-weight: 50;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.menu-grid{
+    
+    padding: 1rem;
+    display:inline-flex;
+    grid-template-rows:repeat(2, 1fr) ;
+    grid-template-columns: repeat(4, 1fr);
+    justify-self: center;
+    grid-gap: 5rem;
+}
+/*
+.menu-img , .menu-img1 , .menu-img2 , .menu-img3 , .menu-img4 ,
+.menu-img5 , .menu-img6 , .menu-img7{
+    height: 50%;
+    width: 100%;
+    background-size: cover;
+    background-position: left;
+}*/
+
+.menu-container{
+    padding:3rem;
+    width:fit-content;
+    height: 9rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.781);
+    transition: all .4s ease;
+    color: darkorange;
+}
+
+.menu-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5rem rgba(236, 35, 35, 0.705);
+    transform: scale(1.07);
+    background-color: darkorange;
+    color: aliceblue;
+}
+
+.menu-title .menu-link{
+
+    text-align: center;
+
+}
+

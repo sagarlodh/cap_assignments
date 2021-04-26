@@ -1,0 +1,7 @@
+.btn-book{
+    background-color: orange;
+    color: white;
+}
+.btn-book:hover{
+    background-color: darkorange;
+}

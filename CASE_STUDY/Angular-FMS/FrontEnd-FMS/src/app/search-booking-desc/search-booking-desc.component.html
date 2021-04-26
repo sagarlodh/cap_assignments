@@ -1,0 +1,204 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark text-light">
+    <h4 class="navbar-brand">
+        <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span>Flights</span></h4>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+          </li>
+        <li class="nav-item">
+          <a routerLink="/userPanel" routerLinkActive="active" class="nav-link">User Page</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button routerLink="/login" style="background-color: rgb(245, 244, 241);"class="btn btn-outline-alert my-2 my-sm-0" routerLinkActive="active" type="submit">Logout</button>
+      </form>
+    </div>
+  </nav>
+
+    <section class="buttons">
+        <div style="text-align: left;padding: 100px 10rem 0.1px;">
+            <form>
+                <button (click)="goToBookingsList()" class="btn btn-success" type="submit">Back</button>
+            </form>
+        </div>
+    </section>
+    <section style="padding-bottom: 30rem;">
+        <div *ngIf="bookingDescription">
+            <div class="container">
+                <h2 class="mb-0" style="text-align: center;padding: 50px;">Booking Description</h2>
+                <div class="row">
+                  <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div style="width: 600px;">
+                        <div class="form-group">
+                            <div class="form-group flight">
+                                <label><h3><b>Booking Information :</b></h3></label>
+                                <div>
+                                    <div>
+                                        <label for="bookingId"><b>Booking Id :</b></label>
+                                        <input type="number" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking.bookingId" name="bookingId">
+                                    </div>
+                                    <div>
+                                        <label for="uniqueCode"><b>Unique Code :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking.uniqueCode" name="uniqueCode">
+                                    </div>
+                                    <div>
+                                        <label for="bookingDate"><b>Booking Date :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking.bookingDate" name="bookingDate">
+                                    </div>
+                                    <div>
+                                        <label for="userId"><b>User Id :</b></label>
+                                        <input type="number" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking.userId" name="userId">
+                                    </div>
+                                    <div>
+                                        <label for="noOfPassengers"><b>No of Passengers :</b></label>
+                                        <input type="number" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking.noOfPassengers" name="noOfPassengers">
+                                    </div>
+                                    <div>
+                                        <label for="flightId"><b>Flight Id:</b></label>
+                                        <input type="number" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking.flightId" name="flightId">
+                                    </div>
+                                </div>
+                            </div><br>
+                             <div class="form-group booking_User_Details">
+                                <label><h3><b>Booking User Information :</b></h3></label>
+                                <div>
+                                    <div>
+                                        <label for="userId"><b>User Id :</b></label>
+                                        <input type="number" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking_User_Details.userId" name="userId">
+                                    </div>
+                                    <div>
+                                        <label for="firstName"><b>First Name :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking_User_Details.firstName" name="firstName">
+                                    </div>
+                                    <div>
+                                        <label for="lastName"><b>Last Name :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking_User_Details.lastName" name="lastName">
+                                    </div>
+                                    <div>
+                                        <label for="email"><b>Email :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking_User_Details.email" name="email">
+                                    </div>
+                                    <div>
+                                        <label for="password"><b>Password :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking_User_Details.password" name="password">
+                                    </div>
+                                    <div>
+                                        <label for="userType"><b>User Type :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="bookingDescription.booking_User_Details.userType" name="userType">
+                                    </div>
+                                </div>
+                            </div><br>
+                            <div class="form-group booking_Flight_Details">
+                                <label><h3><b>Booked Flight Information :</b></h3></label>
+                                <div>
+                                    <div class="form-group flight">
+                                        <label><h4><b>Flight Information :</b></h4></label>
+                                        <div>
+                                            <label for="flightId"><b>Flight Id :</b></label>
+                                            <input type="number" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.flight.flightId" name="flightId">
+                                        </div>
+                                        <div>
+                                            <label for="flightNo"><b>Flight No :</b></label>
+                                            <input type="text" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.flight.flightNo" name="flightNo">
+                                        </div>
+                                        <div>
+                                            <label for="carrier"><b>Carrier :</b></label>
+                                            <input type="text" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.flight.carrier" name="carrier">
+                                        </div>
+                                        <div>
+                                            <label for="seatingCapacity"><b>Seating Capacity :</b></label>
+                                            <input type="number" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.flight.seatingCapacity" name="seatingCapacity">
+                                        </div>
+                                        <div>
+                                            <label for="srcAirportId"><b>Source Airport Id :</b></label>
+                                            <input type="number" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.flight.srcAirportId" name="srcAirportId">
+                                        </div>
+                                        <div>
+                                            <label for="destAirportId"><b>Destination Airport Id :</b></label>
+                                            <input type="number" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.flight.destAirportId" name="destAirportId">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group source_Airport">
+                                        <label><h4><b>Source Airport Information :</b></h4></label>
+                                        <div>
+                                            <label for="airportId"><b>Airport Id :</b></label>
+                                            <input type="number" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.source_Airport.airportId" name="airportId">
+                                        </div>
+                                        <div>
+                                            <label for="airportCode"><b>Airport Code :</b></label>
+                                            <input type="text" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.source_Airport.airportCode" name="airportCode">
+                                        </div>
+                                        <div>
+                                            <label for="airportName"><b>Airport Name :</b></label>
+                                            <input type="text" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.source_Airport.airportName" name="airportName">
+                                        </div>
+                                        <div>
+                                            <label for="airportLocation"><b>Airport Location :</b></label>
+                                            <input type="text" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.source_Airport.airportLocation" name="airportLocation">
+                                        </div>
+                                    </div>
+                                    <div class="form-group destination_Airport">
+                                        <label><h4><b>Destination Airport Information :</b></h4></label>
+                                        <div>
+                                            <label for="airportId"><b>Airport Id :</b></label>
+                                            <input type="number" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.destination_Airport.airportId" name="airportId">
+                                        </div>
+                                        <div>
+                                            <label for="airportCode"><b>Airport Code :</b></label>
+                                            <input type="text" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.destination_Airport.airportCode" name="airportCode">
+                                        </div>
+                                        <div>
+                                            <label for="airportName"><b>Airport Name :</b></label>
+                                            <input type="text" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.destination_Airport.airportName" name="airportName">
+                                        </div>
+                                        <div>
+                                            <label for="airportLocation"><b>Airport Location :</b></label>
+                                            <input type="text" class="form-control" disabled 
+                                            [(ngModel)]="bookingDescription.booking_Flight_Details.destination_Airport.airportLocation" name="airportLocation">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>

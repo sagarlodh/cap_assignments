@@ -1,0 +1,23 @@
+#-setting the port
+server:
+  port: 8181
+
+#-setting the application name
+spring:
+  application:
+    name: HYSTRIX-DASHBOARD
+
+#-to get the signals when API-Gateway receives
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"
+
+#-for registering with Eureka Server
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost

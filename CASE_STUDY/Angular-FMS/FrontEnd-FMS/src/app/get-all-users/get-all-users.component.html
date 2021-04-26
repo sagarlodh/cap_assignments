@@ -1,0 +1,89 @@
+<section >
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark text-light">
+    <h4 class="navbar-brand">
+      <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      <span>Flights</span></h4>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+          </li>
+        <li class="nav-item">
+          <a routerLink="/userPanel" routerLinkActive="active" class="nav-link">User Page</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button routerLink="/login" style="background-color: rgb(245, 244, 241);"class="btn btn-outline-alert my-2 my-sm-0" routerLinkActive="active" type="submit">Logout</button>
+      </form>
+    </div>
+  </nav>
+</section>
+
+<section>
+  <div style="text-align: left;padding: 100px 10rem 0.1px;">
+    <form>
+        <button (click)="goToFlightList()" class="btn btn-success" type="submit">Move to Flights List</button>
+        <br/><br/>
+        <button (click)="goToAirportList()" class="btn btn-success" type="submit">Move to Airports List</button>
+        <br/><br/>
+        <button (click)="goToBookingList()" class="btn btn-success" type="submit">Move to Bookings List</button>
+    </form>
+</div>
+</section>
+
+<section class="buttons">
+    <div style="text-align: left;padding: 100px 10rem 0.1px;">
+        <form>
+          <button (click)="goBackToAdmin()" class="btn btn-success" type="submit">Back to Admin Panel</button>
+        </form>
+    </div>
+</section>
+
+<section class="list" style="padding-bottom: 30rem;">
+<div class="container">
+    <div>
+        <h2 class="mt-1 mb-0" style="text-align: center;font-family: 'Courier New', Courier, monospace;padding: 1rem;
+        background-color: darkorchid;border-radius: 15px;color: ghostwhite;">List of Users</h2>
+    </div>
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+      <div class="mt-1 mb-1">
+        <button style="text-align: left;padding: 15px 12px 12px;" (click)="createUser()" 
+        class="btn btn-success" type="submit">Add User</button>
+        .
+        <button style="text-align: right;padding: 15px 12px 12px;" 
+        (click)="searchUserByParams()"
+         class="btn btn-search" type="submit">Search User</button>
+      </div>  
+      <table class="table table-striped">
+            <thead>
+                <tr style="text-align: center; color: whitesmoke;" class="bg bg-primary">
+                    <td>UserId</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>User Type</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="text-align: center;" *ngFor="let user of users">
+                    <td>{{user.userId}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.userType}}</td>
+                    <td>
+                        <button (click)="deleteUser(user.userId)"class="btn btn-danger">Delete</button>
+                        <button (click)="updateUser(user.userId)" class="btn btn-dark" style="margin-left: 10px">Update</button>
+                        <button (click)="searchUser(user.userId)" class="btn btn-success" style="margin-left: 10px">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+</div>
+</section>

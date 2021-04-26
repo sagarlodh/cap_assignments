@@ -1,0 +1,122 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark text-light">
+    <h4 class="navbar-brand">
+        <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span>Flights</span></h4>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+          </li>
+        <li class="nav-item">
+          <a routerLink="/userPanel" routerLinkActive="active" class="nav-link">User Page</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button routerLink="/login" style="background-color: rgb(245, 244, 241);"class="btn btn-outline-alert my-2 my-sm-0" routerLinkActive="active" type="submit">Logout</button>
+      </form>
+    </div>
+  </nav>
+
+    <section class="buttons">
+        <div style="text-align: left;padding: 100px 10rem 0.1px;">
+            <form>
+                <button (click)="goBackToFlightList()" class="btn btn-success" type="submit">Back</button>
+            </form>
+        </div>
+    </section>
+
+    <section style="padding-bottom: 30rem;">
+        <div *ngIf="flightRouteDetails">
+            <div class="container">
+                <h2 class="mb-0" style="text-align: center;padding: 50px;"><b>Flight Route Details</b></h2>
+                <div class="row">
+                  <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div style="width: 600px;">
+                        <div class="form-group">
+                            <div class="form-group flight">
+                                <label><h3><b>Flight Information :</b></h3></label>
+                                <div>
+                                    <div>
+                                        <label for="flightId"><b>Flight Id :</b></label>
+                                        <input type="number" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.flight.flightId" name="flightId">
+                                    </div>
+                                    <div>
+                                        <label for="flightNo"><b>Flight No :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.flight.flightNo" name="flightNo">
+                                    </div>
+                                    <div>
+                                        <label for="carrier"><b>Flight Carrier :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.flight.carrier" name="carrier">
+                                    </div><div>
+                                        <label for="seatingCapacity"><b>Seating Capacity :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.flight.seatingCapacity" name="seatingCapacity">
+                                    </div>
+                                </div>
+                            </div><br>
+                            <div class="form-group source_Airport">
+                                <label><h3><b>Source Airport Information :</b></h3></label>
+                                <div>
+                                    <div>
+                                        <label for="srcAirportId"><b>Airport Id :</b></label>
+                                        <input type="number" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.source_Airport.airportId" name="srcAirportId">
+                                    </div>
+                                    <div>
+                                        <label for="airportCode"><b>Airport Code :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.source_Airport.airportCode" name="airportCode">
+                                    </div>
+                                    <div>
+                                        <label for="airportName"><b>Airport Name :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.source_Airport.airportName" name="airportName">
+                                    </div>
+                                    <div>
+                                        <label for="airportLocation"><b>Airport Location :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.source_Airport.airportLocation" name="airportLocation">
+                                    </div>
+                                </div>
+                            </div><br>
+                            <div class="form-group destination_Airport">
+                                <label><h3><b>Destination Airport Information :</b></h3></label>
+                                <div>
+                                    <div>
+                                        <label for="destAirportId"><b>Airport Id :</b></label>
+                                        <input type="number" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.destination_Airport.airportId" name="destAirportId">
+                                    </div>
+                                    <div>
+                                        <label for="airportCode"><b>Airport Code :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.destination_Airport.airportCode" name="airportCode">
+                                    </div>
+                                    <div>
+                                        <label for="airportName"><b>Airport Name :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.destination_Airport.airportName" name="airportName">
+                                    </div>
+                                    <div>
+                                        <label for="airportLocation"><b>Airport Location :</b></label>
+                                        <input type="text" class="form-control" disabled 
+                                        [(ngModel)]="flightRouteDetails.destination_Airport.airportLocation" name="airportLocation">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>

@@ -1,0 +1,121 @@
+<section>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark text-light">
+        <h4 class="navbar-brand">
+          <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+          <span>Flights</span></h4>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+              </li>
+            <li class="nav-item">
+              <a routerLink="/userPanel" routerLinkActive="active" class="nav-link">User Page</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <button routerLink="/login" style="background-color: rgb(245, 244, 241);"class="btn btn-outline-alert my-2 my-sm-0" routerLinkActive="active" type="submit">Logout</button>
+          </form>
+        </div>
+      </nav>
+</section>
+
+<section class="buttons">
+    <div style="text-align: left;padding: 100px 10rem 0.1px;">
+        <form>
+            <button (click)="goToList()" class="btn btn-success" type="submit">Back</button>
+        </form>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2 class="mt-1 mb-1" style="text-align: center;padding: 50px;">Edit Booking Details</h2>
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div [hidden]="submitted" style="width: 400px;">
+              <form (ngSubmit)="onSubmit()">
+            
+                <div class="form-group">
+                    <label for="bookingDate"><b>Booking Date :</b></label>
+                    <input type="text" class="form-control" id="bookingDate" 
+                    required [(ngModel)]="booking.bookingDate" name="bookingDate">
+                </div>
+            
+                <div class="form-group">
+                    <label for="userId"><b>User Id :</b></label>
+                    <input type="number" class="form-control" disabled id="userId" 
+                    required [(ngModel)]="booking.userId" name="userId">
+                </div>
+
+                <div class="form-group">
+                    <label for="noOfPassengers"><b>No of Passengers :</b></label>
+                    <input type="number" class="form-control" id="noOfPassengers" 
+                    required [(ngModel)]="booking.noOfPassengers" name="noOfPassengers">
+                </div>
+
+                <div class="form-group">
+                    <label for="flightId"><b>Flight Id :</b></label>
+                    <input type="number" class="form-control" id="flightId" 
+                    required [(ngModel)]="booking.flightId" name="flightId">
+                </div>
+                
+                <div>
+                  <button type="submit" class="btn btn-success">Update Booking Details</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+  
+<section style="padding-bottom: 30rem;"> 
+  <div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <label><b>Enter Source Airport :</b></label>
+        <input type="text" autofocus placeholder="enter source airport " class="form-control"
+        name="srcAirport" [(ngModel)] = "sourceAirport">
+        <label><b>Enter Destination Airport :</b></label>
+        <input type="text" autofocus placeholder="enter source airport " class="form-control"
+        name="destAirport" [(ngModel)] = "destinationAirport">
+        <div style="padding-top: 10px;">
+            <button type="button" class="btn btn-success" (click)="customerSearchFlight()">Search</button> 
+        </div>
+    </div>  
+  </div>
+  <div >
+    <h2 class="mt-5" >Available Flights :</h2>
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <table class="table" style="text-align: center;">
+            <thead class="bg bg-info" style="color: whitesmoke;">
+                <tr>
+                    <td>Flight Id</td>
+                    <td>Flight No</td>
+                    <td>Carrier</td>
+                    <td>Seating Capacity</td>
+                    <td>Source Airport Name</td>
+                    <td>Destination Airport Name</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="text-align: center;"  *ngIf="flightResponse">
+                    <td>{{flightResponse.flightId}}</td>
+                    <td>{{flightResponse.flightNo}}</td>
+                    <td>{{flightResponse.carrier}}</td>
+                    <td>{{flightResponse.seatingCapacity}}</td>
+                    <td>{{flightResponse.srcAirportName}}</td>
+                    <td>{{flightResponse.destAirportName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+#-setting the port for service-registry
+server:
+  port: 8761
+
+#-for NOT registering ITSELF
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

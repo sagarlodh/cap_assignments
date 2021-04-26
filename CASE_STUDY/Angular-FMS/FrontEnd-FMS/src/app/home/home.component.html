@@ -1,0 +1,113 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<section>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark text-light">
+    <h4 class="navbar-brand">
+      <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      <span>Flights</span></h4>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+          </li>
+        <li class="nav-item">
+            <a routerLink="/register" routerLinkActive="active" class="nav-link">Register</a>
+          </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button routerLink="/login" style="background-color: rgb(245, 244, 241);"class="btn btn-outline-alert my-2 my-sm-0" routerLinkActive="active" type="submit">Login</button>
+      </form>
+    </div>
+  </nav>
+</section>
+
+<!-- some fancy stuff goes here-->
+
+
+<section style="padding-bottom: 20rem;background-color: rgb(211, 190, 235);">
+  <section style="align-items: center;padding-left: 30rem;padding-right: 30rem;
+  align-content: center;padding-top: 10rem;background-color: rgb(49, 39, 92);">
+    <h1 style="text-align: center;color: ghostwhite;border-style: solid;
+    border-radius: 10px;border-width: 1px;border-color: red;padding: 0.5rem;">
+    Welcome to X-Flights !!!</h1>
+    <div class="sub-heading" style="background-color: rgb(49, 39, 92);;padding: 3rem;
+    text-align: center;">
+      <h3 style="color: rgb(32, 230, 32);font-family: cursive;
+        font-style: italic;font-weight:bolder;">BOOK BELOW</h3>
+    </div>
+  </section>
+
+  <div *ngIf="true" style="padding-top: 9rem;">
+    <strong style="padding: 10rem;">
+      <h2 style="padding-left: 30rem;">{{errorMsg}}</h2><br/>
+      <div style="padding: 1rem;text-align: center;">{{errorDirection}}</div>
+    </strong>
+  </div> 
+    <div class="container" style="padding: 50px;border-style: solid;border-width: 4px;
+    border-color: rgb(117, 177, 199);background-color:  rgb(117, 177, 199);border-radius: 15px;">
+    <div style="padding-top: 0.5rem;text-align: center;">
+      <strong><h2 style="color: rgb(243, 237, 237);background-color: rgb(147, 65, 214);padding: 1rem;
+      display: inline;border-radius: 10px;">
+        Search your Flights here</h2></strong>
+    </div>
+      <div class="row mt-5" style="padding: 10px;border-style: solid;border-radius: 10px;
+      padding-bottom: 2rem;border-color: rgb(70, 3, 36);border-width: 2px;
+      background-color: rgb(218, 193, 198);">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <label><b>Enter Source Airport :</b></label>
+            <input type="text" autofocus placeholder="enter source airport " class="form-control"
+            name="srcAirport" [(ngModel)] = "sourceAirport">
+            <br/>
+            <label><b>Enter Destination Airport :</b></label>
+            <input type="text" autofocus placeholder="enter destination airport " class="form-control"
+            name="destAirport" [(ngModel)] = "destinationAirport">
+            <div style="padding-top: 10px;">
+                <button type="button" class="btn btn-success" (click)="customerSearchFlight()">Search</button> 
+            </div>
+        </div>  
+      </div>
+      <div style="padding-bottom: 5rem;">
+          <div class="col-lg-12 col-sm-12 col-xs-12">
+            <h2 class="mt-5" style="color: rgb(253, 253, 253);">Available Flights :</h2>
+            <table class="table" style="text-align: center;">
+              <thead class="bg bg-dark" style="color: whitesmoke;">
+                <tr>
+                  <td>Flight Id</td>
+                  <td>Flight No</td>
+                  <td>Carrier</td>
+                  <td>Seating Capacity</td>
+                  <td>Source Airport Name</td>
+                  <td>Destination Airport Name</td>
+                  <td>Book Your Flight</td>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr style="text-align: center;" *ngIf="flightResponse">
+                      <td>{{flightResponse.flightId}}</td>
+                      <td>{{flightResponse.flightNo}}</td>
+                      <td>{{flightResponse.carrier}}</td>
+                      <td>{{flightResponse.seatingCapacity}}</td>
+                      <td>{{flightResponse.srcAirportName}}</td>
+                      <td>{{flightResponse.destAirportName}}</td>
+                      <td>
+                        <button (click)="guideToLogin()"class="btn btn-danger">Book Now</button>
+                      </td>
+                  </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+</section>
+

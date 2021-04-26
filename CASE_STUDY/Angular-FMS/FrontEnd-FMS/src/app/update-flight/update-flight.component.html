@@ -1,0 +1,88 @@
+<section>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark text-light">
+        <h4 class="navbar-brand">
+          <img src="/assets/X.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+          <span>Flights</span></h4>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/contactUs" routerLinkActive="active" class="nav-link">Contact Us</a>
+              </li>
+            <li class="nav-item">
+              <a routerLink="/userPanel" routerLinkActive="active" class="nav-link">User Page</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <button routerLink="/login" style="background-color: rgb(245, 244, 241);"class="btn btn-outline-alert my-2 my-sm-0" routerLinkActive="active" type="submit">Logout</button>
+          </form>
+        </div>
+      </nav>
+</section>
+
+<section class="buttons">
+    <div style="text-align: left;padding: 100px 10rem 0.1px;">
+        <form>
+            <button (click)="gotoList()" class="btn btn-success" type="submit">Back</button>
+        </form>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2 class="mt-1 mb-1" style="text-align: center;padding: 50px;">Edit Flight Details</h2>
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div [hidden]="submitted" style="width: 400px;">
+              <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="flightNo"><b>Flight No :</b></label>
+                  <input type="text" autofocus class="form-control" required id="flightNo" 
+                  required [(ngModel)]="flight.flightNo" name="flightNo">
+                  </div>
+            
+                <div class="form-group">
+                    <label for="carrier"><b>Flight Carrier :</b></label>
+                    <input type="text" class="form-control" id="carrier" 
+                    required [(ngModel)]="flight.carrier" name="carrier">
+                </div>
+            
+                <div class="form-group">
+                    <label for="seatingCapacity"><b>Seating Capacity :</b></label>
+                    <input type="number" class="form-control" required id="seatingCapacity" 
+                    required [(ngModel)]="flight.seatingCapacity" name="seatingCapacity">
+                </div>
+
+                <div class="form-group">
+                    <label for="srcAirportId"><b>Source Airport Id :</b></label>
+                    <input type="number" class="form-control" required id="srcAirportId" 
+                    required [(ngModel)]="flight.srcAirportId" name="srcAirportId">
+                </div>
+                
+                <div class="form-group">
+                    <label for="destAirportId"><b>Destination Airport Id :</b></label>
+                    <input type="number" class="form-control" required id="destAirportId" 
+                    required [(ngModel)]="flight.destAirportId" name="destAirportId">
+                </div>
+                
+                <div>
+                  <button type="submit" class="btn btn-success">Update Airport</button>
+                </div>
+              </form>
+            </div>
+            <div [hidden]="!submitted">
+              <h4>You updated details successfully!</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+<section>
+  <app-search-airport-by-params></app-search-airport-by-params>
+</section>
